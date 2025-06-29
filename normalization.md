@@ -31,3 +31,21 @@ CREATE TABLE BookingStatus (
   status_id INT PRIMARY KEY,
   status_name VARCHAR(50) UNIQUE NOT NULL
 );
+
+ sql
+ 
+ status_id INT REFERENCES BookingStatus(status_id)
+
+ ...
+
+### 2. Removed `total_price` from `Booking`
+
+- This is a derived field based on `start_date`, `end_date`, and `Property.price_per_night`.
+- It will now be calculated in queries.
+
+### 3. Evaluated `Payment.amount`
+
+- If `Payment.amount = Booking.total_price`, it can be omitted.
+- Kept for flexibility in future features like discounts or split payments.
+
+
