@@ -31,8 +31,6 @@ CREATE TABLE BookingStatus (
   status_id INT PRIMARY KEY,
   status_name VARCHAR(50) UNIQUE NOT NULL
 );
-
- sql
  
  status_id INT REFERENCES BookingStatus(status_id)
 
